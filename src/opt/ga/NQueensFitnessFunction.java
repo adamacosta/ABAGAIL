@@ -29,40 +29,9 @@ public class NQueensFitnessFunction implements EvaluationFunction {
 
 		// Calculate the number of non-attacking pairs of queens 
 		List<BoardLocation> qPositions = board.getQueenPositions();
-		//
-		for (int fromX = 0; fromX < (boardSize - 1); fromX++) {
-			for (int toX = fromX + 1; toX < boardSize; toX++) {
-				int fromY = qPositions.get(fromX).getYCoOrdinate();
-				boolean nonAttackingPair = true;
-				// Check right beside
-				int toY = fromY;
-				if (board.queenExistsAt(new BoardLocation(toX, toY))) {
-					nonAttackingPair = false;
-				}
-				// Check right and above
-				toY = fromY - (toX - fromX);
-				if (toY >= 0) {
-					if (board.queenExistsAt(new BoardLocation(toX, toY))) {
-						nonAttackingPair = false;
-					}
-				}
-				// Check right and below
-				toY = fromY + (toX - fromX);
-				if (toY < boardSize) {
-					if (board.queenExistsAt(new BoardLocation(toX, toY))) {
-						nonAttackingPair = false;
-					}
-				}
-
-				if (nonAttackingPair) {
-					fitness += 1.0;
-				}
-			}
+		for (int i = 0; i < qPositions.size(); i++) {
+			fitness -= board.getNumberOfAttacksOn(qPositions.get(i));
 		}
-
-		//System.out.println("===============");
-		//System.out.println(board.toString());
-		//System.out.println("================");
 		
 		return fitness;
 	}

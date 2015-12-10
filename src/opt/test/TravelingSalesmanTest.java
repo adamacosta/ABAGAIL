@@ -46,6 +46,7 @@ public class TravelingSalesmanTest {
             points[i][0] = random.nextDouble();
             points[i][1] = random.nextDouble();   
         }
+        double start = System.nanoTime();
         // for rhc, sa, and ga we use a permutation based encoding
         TravelingSalesmanEvaluationFunction ef = new TravelingSalesmanRouteEvaluationFunction(points);
         Distribution odd = new DiscretePermutationDistribution(N);

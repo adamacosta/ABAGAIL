@@ -46,7 +46,7 @@ public class DiscreteUniformDistribution extends AbstractDistribution {
     public Instance sample(Instance ignored) {
         double[] d  = new double[n.length];
         for (int i = 0; i < d.length; i++) {
-            d[i] = random.nextInt(n[i]);
+            d[i] = random.nextInt(n[i] + 1);
         }
         return new Instance(d);
     }

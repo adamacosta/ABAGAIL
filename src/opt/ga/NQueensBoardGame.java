@@ -255,14 +255,21 @@ public class NQueensBoardGame {
 	@Override
 	public String toString() {
 		StringBuffer buf = new StringBuffer();
+		boolean flag = true;
 		for (int row = 0; row < size; row++) { // rows
 			for (int col = 0; col < size; col++) { // columns
 				if (queenExistsAt(col, row)) {
 					buf.append('Q');
 				} else {
-					buf.append('-');
+					if (flag) {
+						buf.append('-');
+					} else {
+						buf.append('+');
+					}
 				}
+				flag = !flag;
 			}
+			flag = !flag;
 			buf.append("\n");
 		}
 		return buf.toString();

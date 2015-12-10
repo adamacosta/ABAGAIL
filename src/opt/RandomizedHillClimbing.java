@@ -35,10 +35,12 @@ public class RandomizedHillClimbing extends OptimizationAlgorithm {
         HillClimbingProblem hcp = (HillClimbingProblem) getOptimizationProblem();
         Instance neigh = hcp.neighbor(cur);
         double neighVal = hcp.value(neigh);
+        
         if (neighVal > curVal) {
             curVal = neighVal;
             cur = neigh;
         }
+
         return curVal;
     }
 

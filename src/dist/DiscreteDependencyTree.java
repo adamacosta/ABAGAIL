@@ -58,7 +58,7 @@ public class DiscreteDependencyTree extends AbstractDistribution {
         description.setMinVector(new DenseVector(ranges.length));
         DenseVector max = new DenseVector(ranges.length);
         for (int i = 0; i < max.size(); i++) {
-            max.set(i, ranges[i] - 1);
+            max.set(i, ranges[i]);
         }
         description.setMaxVector(max);
     }

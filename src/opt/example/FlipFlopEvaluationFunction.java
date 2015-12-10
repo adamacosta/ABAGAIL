@@ -17,7 +17,7 @@ public class FlipFlopEvaluationFunction implements EvaluationFunction {
         Vector data = d.getData();
         double val = 0;
         for (int i = 0; i < data.size() - 1; i++) {
-            if (data.get(i) != data.get(i + 1)) {
+            if ((data.get(i) == 0 && data.get(i + 1) == 1) || (data.get(i) == 1 && data.get(i + 1) == 0)) {
                 val++;
             }
         }
